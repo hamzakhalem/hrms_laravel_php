@@ -14,5 +14,5 @@ HRMS TEST
 
 
 @section('content')
-hello world!
+hello world!!!!
 @endsection
