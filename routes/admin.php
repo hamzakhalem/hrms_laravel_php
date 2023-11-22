@@ -13,3 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::get('/admin/admin', function () {
+    return view('layouts.admin');
+});
+
+Route::get('/admin/test', function () {
+    return view('admin.extends.test');
+});
