@@ -19,6 +19,6 @@ Route::get('/admin/admin', function () {
     return view('layouts.admin');
 });
 
-Route::get('/admin/test', function () {
-    return view('admin.extends.test');
+Route::get('/admin/login', function () {
+    return view('admin.auth.login');
 });
