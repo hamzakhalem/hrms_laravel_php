@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::get('/admin/admin', function () {
-    return view('layouts.admin');
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'mddileware'=>'guest'], 
+function(){
+    Route::get('login', [LoginController::class, 'show_login_view'])->name('login');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin.auth.login');
-});
+
+
