@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\LoginController;
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'mddileware'=>'guest'], 
 function(){
     Route::get('login', [LoginController::class, 'show_login_view'])->name('login');
+    Route::post('login', [LoginController::class, 'login'])->name('admin.login');
 });
 
 
