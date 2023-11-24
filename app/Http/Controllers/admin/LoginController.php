@@ -23,8 +23,13 @@ class LoginController extends Controller
     }
     public function login(LoginRequest $request){
         if(auth()->guard('admin')->attempt(['username'=> $request->username,'password'=> $request->password]))
-         return view('layouts.admin');
+         return redirect()->route('admin.dashboard');
         else 
             return redirect()->route('login')->with(['error'=>'sorry error in authentication']);
     }
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('login');
+    }
+    
 }

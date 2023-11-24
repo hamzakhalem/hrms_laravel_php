@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,19 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 
-Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'mddileware'=>'guest'], 
+
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'auth:admin'], 
+function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+});
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'guest:admin'], 
 function(){
     Route::get('login', [LoginController::class, 'show_login_view'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('admin.login');
+});
+Route::fallback(function ()  {
+    return '404';
 });
 
 
