@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Admin_panel_settingController ;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,9 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'auth:admin
 function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+    // genral settings
+    Route::get('/generalsettings', [Admin_panel_settingController::class, 'index'])->name('admin_panel_settings.index');
+
 });
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'guest:admin'], 
 function(){
@@ -26,7 +31,7 @@ function(){
     Route::post('login', [LoginController::class, 'login'])->name('admin.login');
 });
 Route::fallback(function ()  {
-    return '404';
+        return '404';
 });
 
 

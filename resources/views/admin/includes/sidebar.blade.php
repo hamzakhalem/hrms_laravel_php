@@ -5,7 +5,7 @@
         <img src="{{ asset('assets/admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">{{ auth()->user()->name }}</a>
       </div>
     </div>
 
@@ -18,15 +18,15 @@
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Starter Pages
+              Settings
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link active">
+              <a href="{{ route('admin_panel_settings.index') }}" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Active Page</p>
+                <p>General settings</p>
               </a>
             </li>
             <li class="nav-item">
