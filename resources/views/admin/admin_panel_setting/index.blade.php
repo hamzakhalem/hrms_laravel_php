@@ -12,6 +12,7 @@ settings list
 View
 @endsection
 @section('content')
+
 <div class="col-12">
    <div class="card">
       <div class="card-header">
@@ -89,7 +90,7 @@ View
                <td> {{ $data['sanctions_value_forth_abcence'] }}</td>
             </tr>
             <tr>
-                <td colspan="2" class="text-center">  <a href="#" class="btn btn-sm btn-danger">Edit</a> </td>
+                <td colspan="2" class="text-center">  <a href="{{ route('admin_panel_settings.edit') }}" class="btn btn-sm btn-danger">Edit</a> </td>
             </tr>
          </table>
          @else
@@ -98,4 +99,5 @@ View
       </div>
    </div>
 </div>
+
 @endsection

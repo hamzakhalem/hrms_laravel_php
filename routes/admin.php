@@ -23,6 +23,8 @@ function(){
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
     // genral settings
     Route::get('/generalsettings', [Admin_panel_settingController::class, 'index'])->name('admin_panel_settings.index');
+    Route::get('/generalsettingsEdit', [Admin_panel_settingController::class, 'edit'])->name('admin_panel_settings.edit');
+    Route::get('/generalSettingsupdate', [Admin_panel_settingController::class, 'update'])->name('admin_panel_settings.update');
 
 });
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'guest:admin'], 
